@@ -1,0 +1,117 @@
+/* =====================================================
+   edX Engineering – Custom Styles
+   ===================================================== */
+
+body {
+  background-color: #f5f7fb;
+}
+
+/* Navbar */
+.navbar-brand {
+  letter-spacing: 0.02em;
+}
+
+/* Cards */
+.card {
+  border-radius: 0.75rem;
+}
+
+/* Chat bubbles */
+.msg-bubble {
+  max-width: 80%;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.msg-user {
+  background-color: #0d6efd;
+  color: #fff;
+  border-bottom-right-radius: 0.25rem;
+  margin-left: auto;
+}
+
+.msg-assistant {
+  background-color: #fff;
+  color: #212529;
+  border: 1px solid #dee2e6;
+  border-bottom-left-radius: 0.25rem;
+  margin-right: auto;
+}
+
+.msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.msg-wrapper.user {
+  align-items: flex-end;
+}
+
+.msg-wrapper.assistant {
+  align-items: flex-start;
+}
+
+.msg-meta {
+  font-size: 0.7rem;
+  color: #adb5bd;
+  margin-top: 0.2rem;
+  padding: 0 0.25rem;
+}
+
+/* Session list items */
+.session-item {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #495057;
+  transition: background 0.15s;
+}
+
+.session-item:hover {
+  background: #e9ecef;
+}
+
+.session-item.active {
+  background: #dbeafe;
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+/* Drop zone */
+#drop-zone.drag-over {
+  background: #e8f4fd;
+  border-color: #0d6efd !important;
+}
+
+/* File list table */
+#file-list-container .table td {
+  vertical-align: middle;
+}
+
+/* Typing indicator */
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #adb5bd;
+  margin: 0 2px;
+  animation: bounce 1s infinite alternate;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-6px); }
+}

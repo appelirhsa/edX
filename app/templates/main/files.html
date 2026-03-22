@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}My Notes – edX Engineering{% endblock %}
+{% block content %}
+<div class="row mb-3">
+  <div class="col">
+    <h4 class="fw-bold"><i class="bi bi-folder2-open me-2 text-primary"></i>My Notes</h4>
+    <p class="text-muted">Upload PDF, TXT, or DOCX files. The AI tutor will use them to answer your questions.</p>
+  </div>
+</div>
+
+<!-- Upload area -->
+<div class="card border-0 shadow-sm mb-4">
+  <div class="card-body">
+    <div id="drop-zone" class="border border-2 border-dashed rounded p-4 text-center text-muted"
+         style="cursor:pointer; border-style:dashed!important;">
+      <i class="bi bi-cloud-arrow-up fs-1 text-primary"></i>
+      <p class="mt-2 mb-1 fw-semibold">Drag &amp; drop files here, or click to browse</p>
+      <p class="small">Supported: PDF, TXT, DOCX — max 16 MB each</p>
+      <input type="file" id="file-input" accept=".pdf,.txt,.docx" class="d-none" multiple />
+    </div>
+    <div id="upload-progress" class="mt-2 d-none">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated"
+             style="width:100%">Uploading…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- File list -->
+<div id="file-list-container">
+  <div class="d-flex justify-content-center py-4">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+</div>
+
+<!-- Preview modal -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="previewTitle">File Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <pre id="previewText" class="bg-light p-3 rounded" style="white-space:pre-wrap;max-height:60vh;overflow-y:auto;"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const fileManager = new FileManager();
+fileManager.init();
+</script>
+{% endblock %}
