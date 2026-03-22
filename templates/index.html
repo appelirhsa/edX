@@ -74,10 +74,7 @@
   <div class="container">
     <h2 class="text-center text-white mb-4">Topics Covered</h2>
     <div class="d-flex flex-wrap justify-content-center gap-2">
-      {% for topic in ['Circuit Analysis', 'Ohm\'s Law', 'Kirchhoff\'s Laws', 'AC/DC Circuits',
-                        'Fourier Analysis', 'Laplace Transform', 'Signal Processing',
-                        'Digital Logic', 'Semiconductors', 'Op-Amps', 'Power Systems',
-                        'Control Theory', 'Electromagnetics', 'Microelectronics'] %}
+      {% for topic in topics %}
       <span class="badge topic-badge">{{ topic }}</span>
       {% endfor %}
     </div>

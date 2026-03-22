@@ -9,7 +9,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from extensions import db, login_manager
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'dev-secret-key-electrical-engineering-2024'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-electrical-engineering-2024')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///edx.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -107,9 +107,17 @@ def query_ollama(prompt):
 # Routes
 # ---------------------------------------------------------------------------
 
+EE_TOPICS = [
+    'Circuit Analysis', "Ohm's Law", "Kirchhoff's Laws", 'AC/DC Circuits',
+    'Fourier Analysis', 'Laplace Transform', 'Signal Processing',
+    'Digital Logic', 'Semiconductors', 'Op-Amps', 'Power Systems',
+    'Control Theory', 'Electromagnetics', 'Microelectronics',
+]
+
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', topics=EE_TOPICS)
 
 
 @app.route('/login', methods=['GET', 'POST'])
