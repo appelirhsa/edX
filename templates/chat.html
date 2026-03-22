@@ -19,6 +19,7 @@
                     {{ 'active-session' if active_session and active_session.id == s.id else '' }}">
           <a href="{{ url_for('chat_session', session_id=s.id) }}"
              class="text-decoration-none flex-grow-1 text-truncate session-title"
+             data-session-id="{{ s.id }}"
              title="{{ s.title }}">
             <i class="fa fa-message me-2 text-muted small"></i>
             <span>{{ s.title }}</span>

@@ -76,8 +76,7 @@
       if (data.title) {
         const sidebarLinks = document.querySelectorAll('.session-title');
         sidebarLinks.forEach(link => {
-          const href = link.getAttribute('href') || '';
-          if (href.endsWith(`/${sessionId}`)) {
+          if (link.dataset.sessionId === String(sessionId)) {
             const spanEl = link.querySelector('span');
             if (spanEl) spanEl.textContent = data.title;
           }

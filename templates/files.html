@@ -82,9 +82,20 @@
 </div>
 
 <script>
+const MAX_FILE_SIZE = 16 * 1024 * 1024; // 16 MB
+
 function updateFileName(input) {
   const display = document.getElementById('file-name-display');
-  display.textContent = input.files.length > 0 ? '📎 ' + input.files[0].name : '';
+  if (input.files.length === 0) { display.textContent = ''; return; }
+  const file = input.files[0];
+  if (file.size > MAX_FILE_SIZE) {
+    display.textContent = '⚠️ File exceeds 16 MB limit. Please choose a smaller file.';
+    display.className = 'text-danger mt-2 mb-0';
+    input.value = '';
+    return;
+  }
+  display.textContent = '📎 ' + file.name;
+  display.className = 'text-info mt-2 mb-0';
 }
 </script>
 {% endblock %}

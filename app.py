@@ -280,7 +280,7 @@ def send_message(session_id):
     db.session.add(user_msg)
 
     # Update session title from first message
-    if len(chat_sess.messages) == 0:
+    if not chat_sess.messages:
         chat_sess.title = message[:MAX_CHAT_TITLE_LENGTH]
 
     # RAG context
@@ -339,5 +339,5 @@ with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
-    debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
-    app.run(debug=debug_mode, port=5000)
+    debug = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
+    app.run(debug=debug, port=5000)
