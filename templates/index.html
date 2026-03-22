@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}EE Learning System – Home{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center py-5">
+  <div class="container">
+    <div class="mb-4">
+      <i class="fa fa-bolt hero-icon"></i>
+    </div>
+    <h1 class="display-4 fw-bold text-white mb-3">Electrical Engineering<br>Learning System</h1>
+    <p class="lead text-muted mb-4">
+      Upload your course notes, chat with an AI tutor powered by local LLM, and master
+      circuits, signals, and systems — all in one place.
+    </p>
+    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-3">
+      <i class="fa fa-user-plus me-2"></i>Get Started Free
+    </a>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">
+      <i class="fa fa-right-to-bracket me-2"></i>Login
+    </a>
+  </div>
+</section>
+
+<!-- Circuit decoration -->
+<div class="circuit-line my-4"></div>
+
+<!-- Features Section -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center text-white mb-5">Why Use EE Learning System?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4 h-100">
+          <div class="feature-icon mb-3">
+            <i class="fa fa-file-upload fa-3x" style="color:#0080ff;"></i>
+          </div>
+          <h4 class="text-white">Upload Notes</h4>
+          <p class="text-muted">
+            Upload PDF, DOCX, or TXT files — lecture notes, textbook chapters,
+            lab reports. Your knowledge base, always at hand.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4 h-100">
+          <div class="feature-icon mb-3">
+            <i class="fa fa-robot fa-3x" style="color:#0080ff;"></i>
+          </div>
+          <h4 class="text-white">AI Chat Tutor</h4>
+          <p class="text-muted">
+            Chat with an AI tutor (powered by Mistral via Ollama) that understands
+            electrical engineering — Ohm's Law to Fourier analysis.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center p-4 h-100">
+          <div class="feature-icon mb-3">
+            <i class="fa fa-magnifying-glass-chart fa-3x" style="color:#0080ff;"></i>
+          </div>
+          <h4 class="text-white">Smart RAG Search</h4>
+          <p class="text-muted">
+            Retrieval-Augmented Generation automatically finds relevant passages
+            from your notes to ground every AI response.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Topics Section -->
+<section class="py-4">
+  <div class="container">
+    <h2 class="text-center text-white mb-4">Topics Covered</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      {% for topic in topics %}
+      <span class="badge topic-badge">{{ topic }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-center">
+  <div class="container">
+    <div class="cta-box p-5 rounded-3">
+      <h3 class="text-white mb-3">Ready to Supercharge Your Studies?</h3>
+      <p class="text-muted mb-4">Join now and start uploading your notes for AI-powered learning.</p>
+      <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
+        <i class="fa fa-bolt me-2"></i>Start Learning
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
