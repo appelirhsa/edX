@@ -1,0 +1,349 @@
+/* ===========================
+   Global / Reset
+   =========================== */
+body {
+  background-color: #0f0f1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===========================
+   Sidebar
+   =========================== */
+#sidebar {
+  min-width: 230px;
+  max-width: 230px;
+  min-height: 100vh;
+  background: #1a1a2e;
+  border-right: 1px solid #2a2a4a;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.25rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 1px solid #2a2a4a;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-nav {
+  padding: 0.75rem 0;
+  flex-grow: 1;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  color: #a0a0c0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s, padding-left 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav li a:hover {
+  background: #24244a;
+  color: #ffffff;
+  padding-left: 1.5rem;
+  border-left-color: #0080ff;
+}
+
+#page-content-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   Topbar
+   =========================== */
+.topbar {
+  background: #1a1a2e;
+  border-bottom: 1px solid #2a2a4a;
+  min-height: 56px;
+}
+
+/* ===========================
+   Auth Cards
+   =========================== */
+.auth-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+}
+
+/* ===========================
+   Dashboard / Stats
+   =========================== */
+.stat-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 128, 255, 0.15);
+}
+
+.dash-section-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+}
+
+/* ===========================
+   Upload Card / Area
+   =========================== */
+.upload-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+}
+
+.upload-area {
+  background: #0f0f1a;
+  border: 2px dashed #2a2a5a;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.upload-area:hover {
+  border-color: #0080ff;
+  background: #12122a;
+}
+
+/* ===========================
+   Feature / Landing Cards
+   =========================== */
+.feature-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 0.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 128, 255, 0.2);
+}
+
+.hero-icon {
+  font-size: 4rem;
+  color: #0080ff;
+  filter: drop-shadow(0 0 20px rgba(0, 128, 255, 0.6));
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  padding: 4rem 0;
+}
+
+.circuit-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0080ff, transparent);
+  opacity: 0.4;
+}
+
+.topic-badge {
+  background: #1a1a2e;
+  border: 1px solid #0080ff;
+  color: #80c0ff;
+  font-size: 0.8rem;
+  padding: 0.4em 0.8em;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, #1a1a2e, #0f1a3a);
+  border: 1px solid #0080ff;
+}
+
+/* ===========================
+   Chat Layout
+   =========================== */
+.chat-sessions-panel {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+}
+
+.session-item {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.session-item:hover {
+  background: #22224a;
+}
+
+.active-session {
+  background: #22224a;
+  border-left: 3px solid #0080ff;
+}
+
+.session-title {
+  color: #c0c0e0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-session-btn {
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-size: 0.75rem;
+}
+
+.session-item:hover .delete-session-btn {
+  opacity: 1;
+}
+
+.chat-header {
+  background: #1a1a2e;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.chat-messages {
+  background: #0f0f1a;
+}
+
+/* Message bubbles */
+.message-bubble {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.user-bubble {
+  background: #0055cc;
+  color: #ffffff;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.assistant-bubble {
+  background: #1e1e3a;
+  color: #e0e0f0;
+  border: 1px solid #2a2a4a;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.user-avatar {
+  background: #0055cc;
+  color: white;
+}
+
+.assistant-avatar {
+  background: #2a2a4a;
+  color: #80c0ff;
+}
+
+/* Chat input */
+.chat-input-area {
+  background: #1a1a2e;
+  border-top: 1px solid #2a2a4a;
+}
+
+.chat-textarea {
+  background: #0f0f1a;
+  border: 1px solid #2a2a4a;
+  color: #e0e0e0;
+  resize: none;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.chat-textarea:focus {
+  background: #0f0f1a;
+  border-color: #0080ff;
+  color: #e0e0e0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 255, 0.2);
+}
+
+.send-btn {
+  border-radius: 0.75rem;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   Tables
+   =========================== */
+.table-dark {
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: #1e1e3a;
+}
+
+/* ===========================
+   Scrollbar
+   =========================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a5a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0080ff;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  #sidebar {
+    min-width: 60px;
+    max-width: 60px;
+  }
+
+  .sidebar-header span,
+  .sidebar-nav li a span,
+  .sidebar-nav li a {
+    font-size: 0;
+  }
+
+  .sidebar-nav li a i {
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+
+  .sidebar-nav li a {
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+  }
+}

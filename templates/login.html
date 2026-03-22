@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Login – EE Learning{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-5 col-lg-4">
+    <div class="auth-card p-4 rounded-3">
+      <div class="text-center mb-4">
+        <i class="fa fa-bolt fa-3x" style="color:#0080ff;"></i>
+        <h3 class="text-white mt-2">Welcome Back</h3>
+        <p class="text-muted">Sign in to your account</p>
+      </div>
+      <form method="POST" action="{{ url_for('login') }}">
+        <div class="mb-3">
+          <label for="username" class="form-label text-light">Username</label>
+          <div class="input-group">
+            <span class="input-group-text bg-dark border-secondary text-muted">
+              <i class="fa fa-user"></i>
+            </span>
+            <input type="text" class="form-control bg-dark border-secondary text-white"
+                   id="username" name="username" placeholder="Enter username" required autofocus>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="form-label text-light">Password</label>
+          <div class="input-group">
+            <span class="input-group-text bg-dark border-secondary text-muted">
+              <i class="fa fa-lock"></i>
+            </span>
+            <input type="password" class="form-control bg-dark border-secondary text-white"
+                   id="password" name="password" placeholder="Enter password" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">
+          <i class="fa fa-right-to-bracket me-2"></i>Login
+        </button>
+      </form>
+      <p class="text-center text-muted mb-0">
+        Don't have an account?
+        <a href="{{ url_for('register') }}" class="text-info">Register here</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
