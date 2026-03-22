@@ -2,6 +2,6 @@ flask
 flask-sqlalchemy
 flask-login
 werkzeug
-pypdf2
+PyPDF2
 python-docx
 requests

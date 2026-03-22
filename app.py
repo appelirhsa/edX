@@ -16,6 +16,9 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
 
 ALLOWED_EXTENSIONS = {'pdf', 'txt', 'docx'}
+MAX_CONTEXT_CHUNK_SIZE = 1000
+MAX_CHAT_TITLE_LENGTH = 60
+MAX_FALLBACK_CONTEXT_SIZE = 500
 
 db.init_app(app)
 login_manager.init_app(app)
@@ -82,7 +85,7 @@ def get_rag_context(message, user_files):
     top = scored[:3]
     chunks = []
     for _, f in top:
-        chunks.append(f'--- {f.original_filename} ---\n{f.extracted_text[:1000]}')
+        chunks.append(f'--- {f.original_filename} ---\n{f.extracted_text[:MAX_CONTEXT_CHUNK_SIZE]}')
     return '\n\n'.join(chunks)
 
 
@@ -278,7 +281,7 @@ def send_message(session_id):
 
     # Update session title from first message
     if len(chat_sess.messages) == 0:
-        chat_sess.title = message[:60]
+        chat_sess.title = message[:MAX_CHAT_TITLE_LENGTH]
 
     # RAG context
     user_files = File.query.filter_by(user_id=current_user.id).all()
@@ -302,7 +305,7 @@ def send_message(session_id):
             answer = (
                 '⚠️ Ollama (local AI) is not running. '
                 'However, here is what was found in your notes:\n\n'
-                + context[:500]
+                + context[:MAX_FALLBACK_CONTEXT_SIZE]
             )
         else:
             answer = (
